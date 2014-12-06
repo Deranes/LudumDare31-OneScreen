@@ -36,4 +36,19 @@ void Room::Draw( sf::RenderWindow* window )
 	{
 		wall.Draw( window, m_Position, m_Scale );
 	}
+
+	if ( m_Player )
+	{
+		m_Player->Draw( window, m_Position, m_Scale );
+	}
+}
+
+void Room::PlayerEntered( Player* player )
+{
+	m_Player = player;
+}
+
+void Room::PlayerLeft()
+{
+	m_Player = nullptr;
 }

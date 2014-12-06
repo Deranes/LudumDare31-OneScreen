@@ -37,6 +37,9 @@ void Game::Intialize( sf::RenderWindow* window )
 	}
 
 	m_Rooms[m_ActiveRoomIndex]->SetScale( ROOM_SCALE_BIG );
+
+	m_Player.Initialize( glm::vec2( 200.0f ) );
+	m_Rooms[m_ActiveRoomIndex]->PlayerEntered( &m_Player );
 }
 
 void Game::Update( float deltaTime )
@@ -44,16 +47,6 @@ void Game::Update( float deltaTime )
 	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Escape ) )
 	{
 		m_Window->close();
-	}
-
-	static float timer = 2.0f;
-	timer -= deltaTime;
-	if ( timer <= 0.0f )
-	{
-		m_RoomTransitionTimer = ROOM_TRANSITION_TIME;
-		m_PrevActiveRoomIndex = m_ActiveRoomIndex;
-		m_ActiveRoomIndex = (m_ActiveRoomIndex+1) % m_Rooms.size();
-		timer = 2.0f;
 	}
 
 	if ( m_RoomTransitionTimer > 0.0f )
@@ -73,6 +66,8 @@ void Game::Update( float deltaTime )
 			m_Rooms[i]->SetPosition( transitionDone * nextPosition + transitionLeft * prevPosition );
 		}
 	}
+
+	m_Player.Update( deltaTime );
 
 	for ( auto& room : m_Rooms )
 	{

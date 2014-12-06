@@ -3,6 +3,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "Room.h"
+#include "Player.h"
 
 #define GAME_ROOMS_X			4
 #define GAME_ROOMS_Y			4
@@ -24,7 +25,8 @@ private:
 
 	sf::RenderWindow*	m_Window;
 	std::vector<Room*>	m_Rooms;
+	Player				m_Player;
 	int					m_ActiveRoomIndex		= 0;
 	int					m_PrevActiveRoomIndex	= 0;
-	float				m_RoomTransitionTimer	= 0.1f;
+	float				m_RoomTransitionTimer	= 0.001f;
 };
