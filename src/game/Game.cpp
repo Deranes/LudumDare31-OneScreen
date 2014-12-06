@@ -1,5 +1,7 @@
 #include "Game.h"
 
+#include "../asset/RoomLayouts.h"
+
 using glm::vec2;
 
 Game::~Game()
@@ -17,12 +19,14 @@ void Game::Intialize( sf::RenderWindow* window )
 	vec2 distBetweenRooms( window->getSize().x / static_cast<float>(GAME_ROOMS_X),
 							window->getSize().y / static_cast<float>(GAME_ROOMS_Y) );
 
+	RoomLayouts roomLayouts;
+
 	for ( int y = 0; y < GAME_ROOMS_Y; ++y )
 	{
 		for ( int x = 0; x < GAME_ROOMS_X; ++x )
 		{
 				Room* newRoom = new Room();
-				newRoom->Initialize();
+				newRoom->Initialize( roomLayouts.GetLayouts()[ y * GAME_ROOMS_X + x] );
 
 				newRoom->SetPosition		( vec2( 0.5f + x, 0.5f + y ) * distBetweenRooms );
 				newRoom->SetSize			( vec2( window->getSize().x, window->getSize().y ) );

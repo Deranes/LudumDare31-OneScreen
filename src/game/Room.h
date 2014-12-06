@@ -8,7 +8,7 @@
 class Room : public Entity
 {
 public:
-	void				Initialize		();
+	void				Initialize		( const std::string& layout );
 	void				Draw			( sf::RenderWindow* window ) override;
 
 private:

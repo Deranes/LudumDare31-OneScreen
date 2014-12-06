@@ -5,36 +5,24 @@
 
 using glm::vec2;
 
-/* Room 0 (0,0)
-NNNNNNNNNNNNNNNN
-N..............N
-N..............N
-N.....N....N...N
-N.....N........N
-N.....N........N
-N..............N
-N...............
-NNNNNNNNNNNNNNNN
-*/
-
-void Room::Initialize()
+void Room::Initialize( const std::string& layout )
 {
-	std::string room0 = "NNNNNNNNNNNNNNNNN..............NN..............NN.....N....N...NN.....N........NN.....N........NN..............NN...............NNNNNNNNNNNNNNNN";
-	assert( room0.size() == 16 * 9 );
+	//std::string room0 = "NNNNNNNNNNNNNNNN.............NN.............NN.............NN..............N............NNN...........NNNN..........NNNNNNNNNNNNNNNNNNN";
+	assert( layout.size() == 15 * 9 );
 
-	m_Walls.resize( room0.size() );
+	m_Walls.resize( layout.size() );
 	for ( int i = 0; i < m_Walls.size(); ++i )
 	{
 		m_Walls[i].SetSize( vec2( 100.0f ) );
-		m_Walls[i].SetColor( sf::Color::Blue );
+		m_Walls[i].SetColor( sf::Color::Black );
 	}
 
-	for ( int i = 0; i < room0.size(); ++i )
+	for ( int i = 0; i < layout.size(); ++i )
 	{
-		switch ( room0[i] )
+		switch ( layout[i] )
 		{
 		case 'N':
-			m_Walls[i].SetPosition( vec2( i % 16, i / 16 ) * m_Walls[i].GetSize() );
+			m_Walls[i].SetPosition( vec2( i % 15, i / 15 ) * m_Walls[i].GetSize() );
 			break;
 		}
 	}

@@ -11,6 +11,9 @@
     <Filter Include="Source Files\utiltity">
       <UniqueIdentifier>{ad57fa37-1b80-48a1-8ae0-9dc8452fd547}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\asset">
+      <UniqueIdentifier>{aac1a865-6c6f-460d-bf0a-40165bf060c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -28,6 +31,9 @@
     <ClCompile Include="..\src\game\Entity.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\asset\RoomLayouts.cpp">
+      <Filter>Source Files\asset</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\game\Room.h">
@@ -44,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="..\src\game\Entity.h">
       <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\asset\RoomLayouts.h">
+      <Filter>Source Files\asset</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
