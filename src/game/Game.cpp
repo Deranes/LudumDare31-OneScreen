@@ -22,15 +22,15 @@ void Game::Intialize( sf::RenderWindow* window )
 		for ( int x = 0; x < GAME_ROOMS_X; ++x )
 		{
 				Room* newRoom				= new Room();
-				newRoom->SetTargetPosition	( vec2( 0.5f + x, 0.5f + y ) * distBetweenRooms );
-				newRoom->SetPosition		( newRoom->GetTargetPosition() );
-				newRoom->SetSize			( vec2( ROOM_SIZE_X, ROOM_SIZE_Y ) );
-				newRoom->SetRadius			( 0.5f * glm::length( newRoom->GetSize() ) );
-				newRoom->SetScale			( 0.1f );
+				newRoom->SetPosition		( vec2( 0.5f + x, 0.5f + y ) * distBetweenRooms );
+				newRoom->SetSize			( vec2( window->getSize().x, window->getSize().y ) );
+				newRoom->SetScale			( ROOM_SCALE_SMALL );
 
 				m_Rooms.push_back( newRoom );
 		}
 	}
+
+	m_Rooms[m_ActiveRoomIndex]->SetScale( ROOM_SCALE_BIG );
 }
 
 void Game::Update( float deltaTime )
@@ -40,24 +40,44 @@ void Game::Update( float deltaTime )
 		m_Window->close();
 	}
 
-	m_Rooms[7]->SetScale( glm::min( 1.0f, m_Rooms[7]->GetScale() + 0.1f * deltaTime) );
-
-	// Move all rooms towards their target destination.
-	for ( auto& room : m_Rooms )
+	static float timer = 1.0f;
+	timer -= deltaTime;
+	if ( timer <= 0.0f )
 	{
-		room->SetPosition( room->GetPosition() + deltaTime * (room->GetTargetPosition() - room->GetPosition()) );
+		m_Rooms[m_ActiveRoomIndex]->SetScale( ROOM_SCALE_SMALL );
+		m_ActiveRoomIndex = (m_ActiveRoomIndex+1) % m_Rooms.size();
+		m_Rooms[m_ActiveRoomIndex]->SetScale( ROOM_SCALE_BIG );
+		timer = 1.0f;
 	}
 
-	// Keep rooms seperated.
-	vec2 collisioNormal( 0.0f );
-	for ( auto a = m_Rooms.begin(); a != m_Rooms.end(); ++a )
 	{
-		for ( auto b = a+1; b != m_Rooms.end(); ++b )
+		const vec2 windowSize		= vec2( m_Window->getSize().x, m_Window->getSize().y );
+		const vec2 smallRoomSize	= ROOM_SCALE_SMALL * windowSize;
+		const vec2 bigRoomSize		= ROOM_SCALE_BIG * windowSize;
+		const vec2 bigSmallDiffSize	= bigRoomSize - smallRoomSize;
+
+		int x = 0, activeX = m_ActiveRoomIndex % GAME_ROOMS_X;
+		int y = 0, activeY = m_ActiveRoomIndex / GAME_ROOMS_X;
+		for ( auto& room : m_Rooms )
 		{
-			if ( CollisionTest( *a, *b, collisioNormal ) )
+			 vec2 screenPosition(	x * smallRoomSize.x + (x <= activeX ? 0 : bigSmallDiffSize.x),
+									y * smallRoomSize.y + (y <= activeY ? 0 : bigSmallDiffSize.y) );
+
+			if ( x == activeX && y != activeY )
 			{
-				(*a)->SetPosition( (*a)->GetPosition() + 0.8f * collisioNormal );
-				(*b)->SetPosition( (*b)->GetPosition() - 0.8f * collisioNormal );
+				screenPosition.x += 0.5f * bigSmallDiffSize.x;
+			}
+			if ( y == activeY && x != activeX )
+			{
+				screenPosition.y += 0.5f * bigSmallDiffSize.y;
+			}
+
+			room->SetPosition( screenPosition );
+
+			if ( ++x == GAME_ROOMS_X )
+			{
+				x = 0;
+				++y;
 			}
 		}
 	}
@@ -74,20 +94,4 @@ void Game::Draw()
 	{
 		room->Draw( m_Window );
 	}
-}
-
-bool Game::CollisionTest( Room* a, Room* b, glm::vec2& penetration )
-{
-	const vec2	distance	= a->GetPosition() - b->GetPosition();
-	const float distSqrd	= glm::dot( distance, distance );
-
-	const float combRadius	= a->GetScale() * a->GetRadius() + b->GetScale() * b->GetRadius();
-	const float	radiusSqrd	= combRadius * combRadius;
-
-	if ( distSqrd <= radiusSqrd )
-	{
-		penetration = (combRadius - glm::length( distance )) * glm::normalize( distance );
-		return true;
-	}
-	return false;
 }

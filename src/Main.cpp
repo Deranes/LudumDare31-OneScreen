@@ -31,7 +31,7 @@ int main()
 
 		game.Update( deltaTime.asSeconds() );
 
-		window.clear( sf::Color::White );
+		window.clear( sf::Color::Black );
 		game.Draw();
 		window.display();
 	}

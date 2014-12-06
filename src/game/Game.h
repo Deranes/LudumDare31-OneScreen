@@ -4,8 +4,10 @@
 #include <SFML/Graphics.hpp>
 #include "Room.h"
 
-#define GAME_ROOMS_X	5
-#define GAME_ROOMS_Y	4
+#define GAME_ROOMS_X		4
+#define GAME_ROOMS_Y		4
+#define ROOM_SCALE_BIG		0.58f
+#define ROOM_SCALE_SMALL	0.14f
 
 class Game
 {
@@ -17,8 +19,7 @@ public:
 	void				Draw			();
 
 private:
-	bool				CollisionTest	( Room* a, Room* b, glm::vec2& outCollisionNormal );
-
 	sf::RenderWindow*	m_Window;
-	std::vector<Room*>	m_Rooms;	
+	std::vector<Room*>	m_Rooms;
+	int					m_ActiveRoomIndex	= 6;
 };
