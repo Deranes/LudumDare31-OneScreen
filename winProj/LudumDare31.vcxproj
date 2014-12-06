@@ -129,13 +129,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\game\Entity.cpp" />
     <ClCompile Include="..\src\game\Game.cpp" />
     <ClCompile Include="..\src\game\Room.cpp" />
+    <ClCompile Include="..\src\game\Wall.cpp" />
     <ClCompile Include="..\src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\game\Entity.h" />
     <ClInclude Include="..\src\game\Game.h" />
     <ClInclude Include="..\src\game\Room.h" />
+    <ClInclude Include="..\src\game\Wall.h" />
     <ClInclude Include="..\src\utility\PlatformDefinitions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

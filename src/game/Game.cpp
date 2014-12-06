@@ -21,7 +21,9 @@ void Game::Intialize( sf::RenderWindow* window )
 	{
 		for ( int x = 0; x < GAME_ROOMS_X; ++x )
 		{
-				Room* newRoom				= new Room();
+				Room* newRoom = new Room();
+				newRoom->Initialize();
+
 				newRoom->SetPosition		( vec2( 0.5f + x, 0.5f + y ) * distBetweenRooms );
 				newRoom->SetSize			( vec2( window->getSize().x, window->getSize().y ) );
 				newRoom->SetScale			( ROOM_SCALE_SMALL );

@@ -22,6 +22,12 @@
     <ClCompile Include="..\src\game\Game.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\game\Wall.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\Entity.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\game\Room.h">
@@ -32,6 +38,12 @@
     </ClInclude>
     <ClInclude Include="..\src\utility\PlatformDefinitions.h">
       <Filter>Source Files\utiltity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\Wall.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\Entity.h">
+      <Filter>Source Files\game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
