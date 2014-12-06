@@ -27,9 +27,19 @@ const glm::vec2& Room::GetSize() const
 	return m_Size;
 }
 
+float Room::GetRadius() const
+{
+	return m_Radius;
+}
+
 float Room::GetScale() const
 {
 	return m_Scale;
+}
+
+const glm::vec2& Room::GetTargetPosition() const
+{
+	return m_TargetPosition;
 }
 
 void Room::SetPosition( const glm::vec2& newPosition )
@@ -42,7 +52,17 @@ void Room::SetSize( const glm::vec2& newSize )
 	m_Size = newSize;
 }
 
+void Room::SetRadius( float newRadius )
+{
+	m_Radius = newRadius;
+}
+
 void Room::SetScale( float newScale )
 {
 	m_Scale = newScale;
+}
+
+void Room::SetTargetPosition( const glm::vec2& newTargetPosition )
+{
+	m_TargetPosition = newTargetPosition;
 }
