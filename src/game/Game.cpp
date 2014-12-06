@@ -40,45 +40,31 @@ void Game::Update( float deltaTime )
 		m_Window->close();
 	}
 
-	static float timer = 1.0f;
+	static float timer = 2.0f;
 	timer -= deltaTime;
 	if ( timer <= 0.0f )
 	{
-		m_Rooms[m_ActiveRoomIndex]->SetScale( ROOM_SCALE_SMALL );
+		m_RoomTransitionTimer = ROOM_TRANSITION_TIME;
+		m_PrevActiveRoomIndex = m_ActiveRoomIndex;
 		m_ActiveRoomIndex = (m_ActiveRoomIndex+1) % m_Rooms.size();
-		m_Rooms[m_ActiveRoomIndex]->SetScale( ROOM_SCALE_BIG );
-		timer = 1.0f;
+		timer = 2.0f;
 	}
 
+	if ( m_RoomTransitionTimer > 0.0f )
 	{
-		const vec2 windowSize		= vec2( m_Window->getSize().x, m_Window->getSize().y );
-		const vec2 smallRoomSize	= ROOM_SCALE_SMALL * windowSize;
-		const vec2 bigRoomSize		= ROOM_SCALE_BIG * windowSize;
-		const vec2 bigSmallDiffSize	= bigRoomSize - smallRoomSize;
+		m_RoomTransitionTimer = glm::max( 0.0f, m_RoomTransitionTimer - deltaTime );
 
-		int x = 0, activeX = m_ActiveRoomIndex % GAME_ROOMS_X;
-		int y = 0, activeY = m_ActiveRoomIndex / GAME_ROOMS_X;
-		for ( auto& room : m_Rooms )
+		const float transitionLeft	= m_RoomTransitionTimer / ROOM_TRANSITION_TIME;
+		const float transitionDone = 1.0f - transitionLeft;
+		m_Rooms[m_PrevActiveRoomIndex]->SetScale( transitionDone * ROOM_SCALE_SMALL + transitionLeft * ROOM_SCALE_BIG );
+		m_Rooms[m_ActiveRoomIndex]->SetScale( transitionDone * ROOM_SCALE_BIG + transitionLeft * ROOM_SCALE_SMALL );
+
+		for ( int i = 0; i < m_Rooms.size(); ++i )
 		{
-			 vec2 screenPosition(	x * smallRoomSize.x + (x <= activeX ? 0 : bigSmallDiffSize.x),
-									y * smallRoomSize.y + (y <= activeY ? 0 : bigSmallDiffSize.y) );
-
-			if ( x == activeX && y != activeY )
-			{
-				screenPosition.x += 0.5f * bigSmallDiffSize.x;
-			}
-			if ( y == activeY && x != activeX )
-			{
-				screenPosition.y += 0.5f * bigSmallDiffSize.y;
-			}
-
-			room->SetPosition( screenPosition );
-
-			if ( ++x == GAME_ROOMS_X )
-			{
-				x = 0;
-				++y;
-			}
+			vec2 nextPosition, prevPosition;
+			this->RoomPlacement( i, m_ActiveRoomIndex, nextPosition );
+			this->RoomPlacement( i, m_PrevActiveRoomIndex, prevPosition );
+			m_Rooms[i]->SetPosition( transitionDone * nextPosition + transitionLeft * prevPosition );
 		}
 	}
 
@@ -94,4 +80,29 @@ void Game::Draw()
 	{
 		room->Draw( m_Window );
 	}
+}
+
+void Game::RoomPlacement( int roomIndex, int activeRoomIndex, glm::vec2& position )
+{
+	const vec2 windowSize		= vec2( m_Window->getSize().x, m_Window->getSize().y );
+	const vec2 smallRoomSize	= ROOM_SCALE_SMALL * windowSize;
+	const vec2 bigRoomSize		= ROOM_SCALE_BIG * windowSize;
+	const vec2 bigSmallDiffSize	= bigRoomSize - smallRoomSize;
+
+	int x = roomIndex % GAME_ROOMS_X, activeX = activeRoomIndex % GAME_ROOMS_X;
+	int y = roomIndex / GAME_ROOMS_X, activeY = activeRoomIndex / GAME_ROOMS_X;
+
+	vec2 screenPosition(	x * smallRoomSize.x + (x <= activeX ? 0 : bigSmallDiffSize.x),
+							y * smallRoomSize.y + (y <= activeY ? 0 : bigSmallDiffSize.y) );
+
+	if ( x == activeX && y != activeY )
+	{
+		screenPosition.x += 0.5f * bigSmallDiffSize.x;
+	}
+	if ( y == activeY && x != activeX )
+	{
+		screenPosition.y += 0.5f * bigSmallDiffSize.y;
+	}
+
+	position = screenPosition;
 }
