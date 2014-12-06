@@ -1,11 +1,19 @@
 #include "Game.h"
 
+Game::~Game()
+{
+	for ( auto& room : m_Rooms )
+	{
+		delete room;
+	}
+}
+
 void Game::Intialize( sf::RenderWindow* window )
 {
 	m_Window = window;
 
-	//sf::CircleShape shape(100.f);
-	//shape.setFillColor(sf::Color::Green);
+	Room* firstRoom = new Room();
+	m_Rooms.push_back( firstRoom );
 }
 
 void Game::Update( float deltaTime )
@@ -14,9 +22,17 @@ void Game::Update( float deltaTime )
 	{
 		m_Window->close();
 	}
+
+	for ( auto& room : m_Rooms )
+	{
+		room->Update( deltaTime );
+	}
 }
 
 void Game::Draw()
 {
-	//m_Window.draw(shape);
+	for ( auto& room : m_Rooms )
+	{
+		room->Draw( m_Window );
+	}
 }

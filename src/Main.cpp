@@ -1,8 +1,15 @@
 #include <SFML/Graphics.hpp>
+#include "utility/PlatformDefinitions.h"
 #include "game/Game.h"
 
 int main()
 {
+	#ifdef WINDOWS_DEBUG
+	_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
+	//_CrtSetBreakAlloc( 2704 ); //Insert allocation numbers here to invoke a break at that point
+	#endif
+
+
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 4;
 
