@@ -8,6 +8,9 @@
     <Filter Include="Source Files\game">
       <UniqueIdentifier>{eaf968c2-0fcc-4a8f-aa5d-6b33f80a0fd2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\utiltity">
+      <UniqueIdentifier>{ad57fa37-1b80-48a1-8ae0-9dc8452fd547}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Main.cpp">
@@ -26,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="..\src\game\Game.h">
       <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utility\PlatformDefinitions.h">
+      <Filter>Source Files\utiltity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

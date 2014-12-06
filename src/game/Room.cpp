@@ -12,6 +12,7 @@ void Room::Draw( sf::RenderWindow* window )
 	rectangle.setPosition	( sf::Vector2f( m_Position.x,	m_Position.y	) );
 	rectangle.setSize		( sf::Vector2f( m_Size.x,		m_Size.y		) );
 	rectangle.setScale		( sf::Vector2f( m_Scale,		m_Scale			) );
+	rectangle.setOrigin		( 0.5f * rectangle.getSize() );
 
 	window->draw( rectangle );
 }

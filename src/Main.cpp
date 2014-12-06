@@ -9,11 +9,7 @@ int main()
 	//_CrtSetBreakAlloc( 2704 ); //Insert allocation numbers here to invoke a break at that point
 	#endif
 
-
-	sf::ContextSettings settings;
-	settings.antialiasingLevel = 4;
-
-	sf::RenderWindow window( sf::VideoMode(1600, 900), "Ola Enberg - Ludum Dare 31 - Entire Game on One Screen", sf::Style::Default, settings );
+	sf::RenderWindow window( sf::VideoMode(1600, 900), "Ola Enberg - Ludum Dare 31 - Entire Game on One Screen" );
 
 	Game game;
 	game.Intialize( &window );

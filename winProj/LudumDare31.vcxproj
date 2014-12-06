@@ -136,6 +136,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\game\Game.h" />
     <ClInclude Include="..\src\game\Room.h" />
+    <ClInclude Include="..\src\utility\PlatformDefinitions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

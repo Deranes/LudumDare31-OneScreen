@@ -4,6 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include "Room.h"
 
+#define GAME_ROOMS_X	5
+#define GAME_ROOMS_Y	4
+
 class Game
 {
 public:

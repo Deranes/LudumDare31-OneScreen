@@ -3,8 +3,8 @@
 #include <glm/glm.hpp>
 #include <SFML/Graphics.hpp>
 
-#define ROOM_SIZE_X		150
-#define ROOM_SIZE_Y		100
+#define ROOM_SIZE_X		300
+#define ROOM_SIZE_Y		205
 
 class Room
 {
