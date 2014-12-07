@@ -14,22 +14,38 @@ void Player::Update( float deltaTime )
 {
 	if ( Keyboard::isKeyPressed( Keyboard::D ) )
 	{
-		m_Position.x += deltaTime * 400.0f;
+		m_Position.x += deltaTime * PLAYER_WALK_SPEED;
 	}
 	if ( Keyboard::isKeyPressed( Keyboard::A ) )
 	{
-		m_Position.x -= deltaTime * 400.0f;
+		m_Position.x -= deltaTime * PLAYER_WALK_SPEED;
 	}
 	if ( Keyboard::isKeyPressed( Keyboard::Space ) )
 	{
-		m_FallSpeed = -400.0f;
+		if ( m_CanJump )
+		{
+			m_FallSpeed		= -PLAYER_JUMP_POWER;
+			m_JumpTimeLeft	= PLAYER_JUMP_TIME - deltaTime;
+		}
+		else if ( m_JumpTimeLeft > 0.0f )
+		{
+			m_FallSpeed		= -PLAYER_JUMP_POWER;
+			m_JumpTimeLeft -= deltaTime;
+		}
+	}
+	else
+	{
+		m_JumpTimeLeft = 0.0f;
 	}
 
-	m_FallSpeed += deltaTime * GRAVITY;
+	m_FallSpeed += deltaTime * PLAYER_GRAVITY;
 	m_Position.y += deltaTime * m_FallSpeed;
+
+	m_CanJump = false;
 }
 
 void Player::StopFalling()
 {
 	m_FallSpeed = 0.0f;
+	m_CanJump	= true;
 }

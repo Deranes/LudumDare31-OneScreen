@@ -2,7 +2,10 @@
 
 #include "Entity.h"
 
-#define GRAVITY		1900.0f
+#define PLAYER_WALK_SPEED	290.0f
+#define PLAYER_GRAVITY		2500.0f
+#define PLAYER_JUMP_POWER	580.0f
+#define PLAYER_JUMP_TIME	0.25f
 
 class Player : public Entity
 {
@@ -13,4 +16,6 @@ public:
 
 private:
 	float				m_FallSpeed		= 0.0f;
+	bool				m_CanJump		= false;
+	float				m_JumpTimeLeft	= 0.0f;
 };

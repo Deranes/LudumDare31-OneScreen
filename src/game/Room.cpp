@@ -171,7 +171,6 @@ void Room::PlayerVsWall()
 				if ( depth >= 0.0f && glm::abs( toPlayer.x ) <= 0.5f * (m_Player->GetSize().x + wall.GetSize().x) )
 				{
 					m_Player->GetEditablePosition().y += depth;
-					m_Player->StopFalling();
 				}
 			}
 		}
