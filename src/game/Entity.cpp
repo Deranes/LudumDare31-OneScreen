@@ -22,11 +22,17 @@ void Entity::Draw( sf::RenderWindow* window, const glm::vec2& position, float sc
 	rectangle.setPosition	( sf::Vector2f( drawPosition.x,	drawPosition.y	) );
 	rectangle.setSize		( sf::Vector2f( m_Size.x,		m_Size.y		) );
 	rectangle.setScale		( sf::Vector2f( drawScale,		drawScale		) );
+	rectangle.setOrigin		( 0.5f * rectangle.getSize() );
 
 	window->draw( rectangle );
 }
 
 const glm::vec2& Entity::GetPosition() const
+{
+	return m_Position;
+}
+
+glm::vec2& Entity::GetEditablePosition()
 {
 	return m_Position;
 }

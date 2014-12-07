@@ -10,6 +10,7 @@ class Room : public Entity
 {
 public:
 	void				Initialize		( const std::string& layout );
+	void				Update			( float deltaTime ) override;
 	void				Draw			( sf::RenderWindow* window ) override;
 
 	void				PlayerEntered	( Player* player );

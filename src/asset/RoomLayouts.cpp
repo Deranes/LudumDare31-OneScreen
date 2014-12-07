@@ -44,11 +44,11 @@ NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
 
 RoomLayouts::RoomLayouts()
 {
-	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............NN.............>NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN" );
+	//m_Layouts.push_back( "N.............NN.............NN.............NN.............NN.............>NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN" );
 
 	for ( int i = static_cast<int>(m_Layouts.size()); i < 16; ++i )
 	{
-		m_Layouts.push_back("NNNNNNN.NNNNNNNN.............NN.............NN.............N...............N.............NN.............NN.............NNNNNNNN.NNNNNNN");
+		m_Layouts.push_back("N.............NN.............NN.............NN.............N...............N.............NN.............NN.............NNNNNNNN.NNNNNNN");
 	}
 }
 

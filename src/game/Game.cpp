@@ -38,7 +38,7 @@ void Game::Intialize( sf::RenderWindow* window )
 
 	m_Rooms[m_ActiveRoomIndex]->SetScale( ROOM_SCALE_BIG );
 
-	m_Player.Initialize( glm::vec2( 200.0f ) );
+	m_Player.Initialize( glm::vec2( -200.0f ) );
 	m_Rooms[m_ActiveRoomIndex]->PlayerEntered( &m_Player );
 }
 
@@ -63,7 +63,8 @@ void Game::Update( float deltaTime )
 			vec2 nextPosition, prevPosition;
 			this->RoomPlacement( i, m_ActiveRoomIndex, nextPosition );
 			this->RoomPlacement( i, m_PrevActiveRoomIndex, prevPosition );
-			m_Rooms[i]->SetPosition( transitionDone * nextPosition + transitionLeft * prevPosition );
+			m_Rooms[i]->SetPosition( (transitionDone * nextPosition + transitionLeft * prevPosition) + ((0.5f * m_Rooms[i]->GetScale()) * m_Rooms[i]->GetSize()) );
+			int derp = 0;
 		}
 	}
 
