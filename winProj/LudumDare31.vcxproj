@@ -133,6 +133,7 @@
     <ClCompile Include="..\src\game\Door.cpp" />
     <ClCompile Include="..\src\game\Entity.cpp" />
     <ClCompile Include="..\src\game\Game.cpp" />
+    <ClCompile Include="..\src\game\JumpPlate.cpp" />
     <ClCompile Include="..\src\game\Player.cpp" />
     <ClCompile Include="..\src\game\Room.cpp" />
     <ClCompile Include="..\src\game\Wall.cpp" />
@@ -143,6 +144,7 @@
     <ClInclude Include="..\src\game\Door.h" />
     <ClInclude Include="..\src\game\Entity.h" />
     <ClInclude Include="..\src\game\Game.h" />
+    <ClInclude Include="..\src\game\JumpPlate.h" />
     <ClInclude Include="..\src\game\Player.h" />
     <ClInclude Include="..\src\game\Room.h" />
     <ClInclude Include="..\src\game\Wall.h" />

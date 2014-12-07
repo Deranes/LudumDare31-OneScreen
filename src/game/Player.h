@@ -6,6 +6,7 @@
 #define PLAYER_GRAVITY		2500.0f
 #define PLAYER_JUMP_POWER	600.0f
 #define PLAYER_JUMP_TIME	0.27f
+#define PLAYER_ROT_SPEED	720.0f
 
 class Player : public Entity
 {

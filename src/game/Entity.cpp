@@ -23,6 +23,7 @@ void Entity::Draw( sf::RenderWindow* window, const glm::vec2& position, float sc
 	rectangle.setSize		( sf::Vector2f( m_Size.x,		m_Size.y		) );
 	rectangle.setScale		( sf::Vector2f( drawScale,		drawScale		) );
 	rectangle.setOrigin		( 0.5f * rectangle.getSize() );
+	rectangle.setRotation	( m_Rotation );
 
 	window->draw( rectangle );
 }

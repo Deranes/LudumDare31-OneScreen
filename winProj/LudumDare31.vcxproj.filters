@@ -40,6 +40,9 @@
     <ClCompile Include="..\src\game\Door.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\game\JumpPlate.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\game\Room.h">
@@ -64,6 +67,9 @@
       <Filter>Source Files\game</Filter>
     </ClInclude>
     <ClInclude Include="..\src\game\Door.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\JumpPlate.h">
       <Filter>Source Files\game</Filter>
     </ClInclude>
   </ItemGroup>

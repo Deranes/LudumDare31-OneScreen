@@ -15,10 +15,12 @@ void Player::Update( float deltaTime )
 	if ( Keyboard::isKeyPressed( Keyboard::D ) )
 	{
 		m_Position.x += deltaTime * PLAYER_WALK_SPEED;
+		m_RotateRight = true;
 	}
 	if ( Keyboard::isKeyPressed( Keyboard::A ) )
 	{
 		m_Position.x -= deltaTime * PLAYER_WALK_SPEED;
+		m_RotateRight = false;
 	}
 	if ( Keyboard::isKeyPressed( Keyboard::Space ) )
 	{
@@ -37,6 +39,11 @@ void Player::Update( float deltaTime )
 	{
 		m_JumpTimeLeft = 0.0f;
 	}
+
+	if ( m_RotateRight )
+		m_Rotation = m_CanJump ? 0.0f : m_Rotation + PLAYER_ROT_SPEED * deltaTime;
+	else
+		m_Rotation = m_CanJump ? 0.0f : m_Rotation - PLAYER_ROT_SPEED * deltaTime;
 
 	m_FallSpeed += deltaTime * PLAYER_GRAVITY;
 	m_Position.y += deltaTime * m_FallSpeed;

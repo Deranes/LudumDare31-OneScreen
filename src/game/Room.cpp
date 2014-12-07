@@ -54,6 +54,15 @@ void Room::Initialize( const std::string& layout )
 				m_Doors.push_back( door );
 				break;
 			}
+			case 'j':
+			{
+				JumpPlate jumpPlate;
+				jumpPlate.SetPosition( tilePosition );
+				jumpPlate.SetSize( tileSize );
+				jumpPlate.SetColor( sf::Color::Blue );
+				m_JumpPlates.push_back( jumpPlate );
+				break;
+			}
 		}
 	}
 }
@@ -88,6 +97,11 @@ void Room::Draw( sf::RenderWindow* window )
 	for ( auto& wall : m_Walls )
 	{
 		wall.Draw( window, m_Position, m_Scale );
+	}
+
+	for ( auto& jumpPlate : m_JumpPlates )
+	{
+		jumpPlate.Draw( window, m_Position, m_Scale );
 	}
 
 	if ( m_Player )

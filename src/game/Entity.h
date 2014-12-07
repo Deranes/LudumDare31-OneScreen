@@ -26,4 +26,6 @@ protected:
 	glm::vec2					m_Size				= glm::vec2( 1.0f );
 	float						m_Scale				= 1.0f;
 	sf::Color					m_Color				= sf::Color::White;
+	float						m_Rotation			= 0.0f;
+	bool						m_RotateRight		= true;
 };
