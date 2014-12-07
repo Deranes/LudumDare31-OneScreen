@@ -19,6 +19,7 @@ public:
 
 	float				GetOutTransitionAmount	() const;
 	const glm::ivec2&	GetDirectionToNextRoom	() const;
+	bool				GetEnteredNextRoom		() const;
 
 private:
 	void				PlayerVsWall			();
@@ -28,4 +29,5 @@ private:
 	Player*				m_Player				= nullptr;
 	float				m_OutTransitionAmount	= 0.0f;
 	glm::ivec2			m_DirectionToNextRoom	= glm::ivec2( 0, 0 );
+	bool				m_EnteredNextRoom		= false;
 };

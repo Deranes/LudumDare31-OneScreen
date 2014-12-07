@@ -10,18 +10,37 @@ void Door::Initialize( const glm::ivec2& direction, const glm::vec2& position, c
 
 void Door::Update( const glm::vec2& playerPosition )
 {
-	float distance = glm::length( playerPosition - m_Position );
-	if ( distance >= DOOR_MAX_DIST )
+	vec2 distance	= playerPosition - m_Position;
+	float length	= glm::length( distance );
+	if ( length >= DOOR_MAX_DIST )
 	{
 		m_OutTransitionAmount = 0.0f;
 	} 
-	else if ( distance <= DOOR_MIN_DIST )
+	else if ( length <= DOOR_MIN_DIST )
 	{
 		m_OutTransitionAmount = 0.5f;
 	}
 	else
 	{
-		m_OutTransitionAmount = 0.5f + 0.5f * (distance - DOOR_MIN_DIST) / (DOOR_MAX_DIST - DOOR_MIN_DIST);
+		m_OutTransitionAmount = 0.5f + 0.5f * (length - DOOR_MIN_DIST) / (DOOR_MAX_DIST - DOOR_MIN_DIST);
+	}
+
+	m_EnteredNextRoom = false;
+	if ( m_DirectionToNextRoom.x > 0 )
+	{
+		m_EnteredNextRoom = distance.x > 0.0f;
+	}
+	else if ( m_DirectionToNextRoom.x < 0 )
+	{
+		m_EnteredNextRoom = distance.x < 0.0f;
+	}
+	else if ( m_DirectionToNextRoom.y > 0 )
+	{
+		m_EnteredNextRoom = distance.y > 0.0f;
+	}
+	else if ( m_DirectionToNextRoom.y < 0 )
+	{
+		m_EnteredNextRoom = distance.y < 0.0f;
 	}
 }
 
@@ -33,4 +52,9 @@ float Door::GetOutTransitionAmount() const
 const glm::ivec2& Door::GetDirectionToNextRoom() const
 {
 	return m_DirectionToNextRoom;
+}
+
+bool Door::GetEnteredNextRoom() const
+{
+	return m_EnteredNextRoom;
 }

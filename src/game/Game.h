@@ -28,5 +28,5 @@ private:
 	Player				m_Player;
 	int					m_ActiveRoomIndex		= 0;
 	int					m_NextActiveRoomIndex	= 0;
-	float				m_RoomTransition		= 0.0001f;
+	float				m_RoomTransition		= 0.000001f;
 };

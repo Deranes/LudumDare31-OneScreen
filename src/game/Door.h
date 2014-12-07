@@ -2,7 +2,7 @@
 
 #include <glm/glm.hpp>
 
-#define DOOR_MAX_DIST	300.0f
+#define DOOR_MAX_DIST	250.0f
 #define DOOR_MIN_DIST	50.0f
 
 class Door
@@ -13,9 +13,11 @@ public:
 	
 	float				GetOutTransitionAmount	() const;
 	const glm::ivec2&	GetDirectionToNextRoom	() const;
+	bool				GetEnteredNextRoom		() const;
 
 private:
 	glm::vec2			m_Position				= glm::vec2( 0.0f );
 	glm::ivec2			m_DirectionToNextRoom	= glm::ivec2( 0 );
 	float				m_OutTransitionAmount	= 0.0f;
+	bool				m_EnteredNextRoom		= false;
 };

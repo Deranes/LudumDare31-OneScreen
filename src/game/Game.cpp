@@ -1,5 +1,6 @@
 #include "Game.h"
 
+#include <math.h>
 #include "../asset/RoomLayouts.h"
 
 using glm::vec2;
@@ -49,6 +50,33 @@ void Game::Update( float deltaTime )
 		m_Window->close();
 	}
 
+	m_Player.Update( deltaTime );
+
+	for ( auto& room : m_Rooms )
+	{
+		room->Update( deltaTime );
+	}
+
+	const float transitionAmount = m_Rooms[m_ActiveRoomIndex]->GetOutTransitionAmount();
+	if ( transitionAmount > 0.0f )
+	{
+		m_RoomTransition		= transitionAmount;
+		m_NextActiveRoomIndex	= m_ActiveRoomIndex + m_Rooms[m_ActiveRoomIndex]->GetDirectionToNextRoom().x + GAME_ROOMS_X * m_Rooms[m_ActiveRoomIndex]->GetDirectionToNextRoom().y;
+		
+		if ( m_Rooms[m_ActiveRoomIndex]->GetEnteredNextRoom() )
+		{
+			m_Rooms[m_ActiveRoomIndex]->PlayerLeft();
+
+			m_Player.SetPosition( m_Player.GetPosition() + vec2( -1500.0f * m_Rooms[m_ActiveRoomIndex]->GetDirectionToNextRoom().x, -900.0f * m_Rooms[m_ActiveRoomIndex]->GetDirectionToNextRoom().y ) );
+
+			int temp				= m_ActiveRoomIndex;
+			m_ActiveRoomIndex		= m_NextActiveRoomIndex;
+			m_NextActiveRoomIndex	= temp;
+
+			m_Rooms[m_ActiveRoomIndex]->PlayerEntered( &m_Player );
+		}
+	}
+
 	if ( m_RoomTransition > 0.0f )
 	{
 		const float transitionDone = 1.0f - m_RoomTransition;
@@ -63,20 +91,6 @@ void Game::Update( float deltaTime )
 			this->RoomPlacement( i, m_NextActiveRoomIndex, nextPosition );
 			m_Rooms[i]->SetPosition( (transitionDone * nextPosition + transitionLeft * prevPosition) + ((0.5f * m_Rooms[i]->GetScale()) * m_Rooms[i]->GetSize()) );
 		}
-	}
-
-	m_Player.Update( deltaTime );
-
-	for ( auto& room : m_Rooms )
-	{
-		room->Update( deltaTime );
-	}
-
-	const float transitionAmount = m_Rooms[m_ActiveRoomIndex]->GetOutTransitionAmount();
-	if ( transitionAmount > 0.0f )
-	{
-		m_RoomTransition		= transitionAmount;
-		m_NextActiveRoomIndex	= m_ActiveRoomIndex + m_Rooms[m_ActiveRoomIndex]->GetDirectionToNextRoom().x + GAME_ROOMS_X * m_Rooms[m_ActiveRoomIndex]->GetDirectionToNextRoom().y;
 	}
 }
 

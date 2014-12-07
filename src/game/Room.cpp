@@ -33,15 +33,38 @@ void Room::Initialize( const std::string& layout )
 				m_Doors.push_back( door );
 				break;
 			}
+			case '<':
+			{
+				Door door;
+				door.Initialize( ivec2( -1, 0 ), tilePosition, tileSize );
+				m_Doors.push_back( door );
+				break;
+			}
+			case 'v':
+			{
+				Door door;
+				door.Initialize( ivec2( 0, 1 ), tilePosition, tileSize );
+				m_Doors.push_back( door );
+				break;
+			}
+			case '^':
+			{
+				Door door;
+				door.Initialize( ivec2( 0, -1 ), tilePosition, tileSize );
+				m_Doors.push_back( door );
+				break;
+			}
 		}
 	}
 }
 
 void Room::Update( float deltaTime )
 {
+	m_EnteredNextRoom		= false;
+	m_OutTransitionAmount	= 0.0f;
+
 	if ( m_Player )
 	{
-		m_OutTransitionAmount = 0.0f;
 
 		PlayerVsWall();
 
@@ -50,8 +73,9 @@ void Room::Update( float deltaTime )
 			door.Update( m_Player->GetPosition() );
 			if ( door.GetOutTransitionAmount() > m_OutTransitionAmount )
 			{
-				m_OutTransitionAmount = door.GetOutTransitionAmount();
-				m_DirectionToNextRoom = door.GetDirectionToNextRoom();
+				m_OutTransitionAmount	= door.GetOutTransitionAmount();
+				m_DirectionToNextRoom	= door.GetDirectionToNextRoom();
+				m_EnteredNextRoom		= door.GetEnteredNextRoom();
 			}
 		}
 	}
@@ -90,6 +114,11 @@ float Room::GetOutTransitionAmount() const
 const glm::ivec2& Room::GetDirectionToNextRoom() const
 {
 	return m_DirectionToNextRoom;
+}
+
+bool Room::GetEnteredNextRoom() const
+{
+	return m_EnteredNextRoom;
 }
 
 void Room::PlayerVsWall()

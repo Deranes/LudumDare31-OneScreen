@@ -1,45 +1,45 @@
 #include "RoomLayouts.h"
 
 /*	
-NNNNNNNNNNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
+NNNNNNNNNNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
-N.............> ............... ............... ...............
+N.............> <.............> <.............> <.............>
 NNNNNNNNNNNNNNN N.............N N.............N N.............N
 NNNNNNNNNNNNNNN N.............N N.............N N.............N
 NNNNNNNNNNNNNNN N.............N N.............N N.............N
-NNNNNNNNNNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
+NNNNNNNNNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN
 
-NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
+NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
-............... ............... ............... ...............
+<.............> <.............> <.............> <.............>
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
-NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
+NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN
 
-NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
+NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
-............... ............... ............... ...............
+<.............> <.............> <.............> <.............>
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
-NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
+NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN
 
-NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
+NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
-............... ............... ............... ...............
+<.............> <.............> <.............> <.............>
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
-NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
+NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN
 */
 
 RoomLayouts::RoomLayouts()
@@ -48,7 +48,7 @@ RoomLayouts::RoomLayouts()
 
 	for ( int i = static_cast<int>(m_Layouts.size()); i < 16; ++i )
 	{
-		m_Layouts.push_back("N.............NN.............NN.............NN.............N...............N.............NN.............NN.............NNNNNNNN.NNNNNNN");
+		m_Layouts.push_back("NNNNNNN^NNNNNNNN.............NN.............NN.............N<.............>N.............NN.............NN.............NNNNNNNNvNNNNNNN");
 	}
 }
 
