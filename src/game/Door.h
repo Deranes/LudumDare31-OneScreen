@@ -2,7 +2,7 @@
 
 #include <glm/glm.hpp>
 
-#define DOOR_MAX_DIST	250.0f
+#define DOOR_MAX_DIST	200.0f
 #define DOOR_MIN_DIST	50.0f
 
 class Door

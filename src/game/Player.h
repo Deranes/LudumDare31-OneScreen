@@ -4,8 +4,8 @@
 
 #define PLAYER_WALK_SPEED	290.0f
 #define PLAYER_GRAVITY		2500.0f
-#define PLAYER_JUMP_POWER	580.0f
-#define PLAYER_JUMP_TIME	0.25f
+#define PLAYER_JUMP_POWER	600.0f
+#define PLAYER_JUMP_TIME	0.27f
 
 class Player : public Entity
 {
