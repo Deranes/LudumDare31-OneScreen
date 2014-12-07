@@ -1,6 +1,6 @@
 #include "RoomLayouts.h"
 
-/*
+/*	
 NNNNNNNNNNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
 N.............N N.............N N.............N N.............N
 N.............N N.............N N.............N N.............N
@@ -44,7 +44,7 @@ NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN NNNNNNN.NNNNNNN
 
 RoomLayouts::RoomLayouts()
 {
-	//m_Layouts.push_back( "N.............NN.............NN.............NN.............NN.............>NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............NN.............>NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN" );
 
 	for ( int i = static_cast<int>(m_Layouts.size()); i < 16; ++i )
 	{

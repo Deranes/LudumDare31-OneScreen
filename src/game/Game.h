@@ -27,6 +27,6 @@ private:
 	std::vector<Room*>	m_Rooms;
 	Player				m_Player;
 	int					m_ActiveRoomIndex		= 0;
-	int					m_PrevActiveRoomIndex	= 0;
-	float				m_RoomTransitionTimer	= 0.001f;
+	int					m_NextActiveRoomIndex	= 0;
+	float				m_RoomTransition		= 0.0001f;
 };

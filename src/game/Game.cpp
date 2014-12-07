@@ -38,7 +38,7 @@ void Game::Intialize( sf::RenderWindow* window )
 
 	m_Rooms[m_ActiveRoomIndex]->SetScale( ROOM_SCALE_BIG );
 
-	m_Player.Initialize( glm::vec2( -200.0f ) );
+	m_Player.Initialize( glm::vec2( -600.0f, -40.0f ) );
 	m_Rooms[m_ActiveRoomIndex]->PlayerEntered( &m_Player );
 }
 
@@ -49,22 +49,19 @@ void Game::Update( float deltaTime )
 		m_Window->close();
 	}
 
-	if ( m_RoomTransitionTimer > 0.0f )
+	if ( m_RoomTransition > 0.0f )
 	{
-		m_RoomTransitionTimer = glm::max( 0.0f, m_RoomTransitionTimer - deltaTime );
-
-		const float transitionLeft	= m_RoomTransitionTimer / ROOM_TRANSITION_TIME;
-		const float transitionDone = 1.0f - transitionLeft;
-		m_Rooms[m_PrevActiveRoomIndex]->SetScale( transitionDone * ROOM_SCALE_SMALL + transitionLeft * ROOM_SCALE_BIG );
-		m_Rooms[m_ActiveRoomIndex]->SetScale( transitionDone * ROOM_SCALE_BIG + transitionLeft * ROOM_SCALE_SMALL );
+		const float transitionDone = 1.0f - m_RoomTransition;
+		const float transitionLeft = m_RoomTransition;
+		m_Rooms[m_ActiveRoomIndex]->SetScale( transitionDone * ROOM_SCALE_SMALL + transitionLeft * ROOM_SCALE_BIG );
+		m_Rooms[m_NextActiveRoomIndex]->SetScale( transitionDone * ROOM_SCALE_BIG + transitionLeft * ROOM_SCALE_SMALL );
 
 		for ( int i = 0; i < m_Rooms.size(); ++i )
 		{
-			vec2 nextPosition, prevPosition;
-			this->RoomPlacement( i, m_ActiveRoomIndex, nextPosition );
-			this->RoomPlacement( i, m_PrevActiveRoomIndex, prevPosition );
+			vec2 prevPosition, nextPosition;
+			this->RoomPlacement( i, m_ActiveRoomIndex, prevPosition );
+			this->RoomPlacement( i, m_NextActiveRoomIndex, nextPosition );
 			m_Rooms[i]->SetPosition( (transitionDone * nextPosition + transitionLeft * prevPosition) + ((0.5f * m_Rooms[i]->GetScale()) * m_Rooms[i]->GetSize()) );
-			int derp = 0;
 		}
 	}
 
@@ -73,6 +70,13 @@ void Game::Update( float deltaTime )
 	for ( auto& room : m_Rooms )
 	{
 		room->Update( deltaTime );
+	}
+
+	const float transitionAmount = m_Rooms[m_ActiveRoomIndex]->GetOutTransitionAmount();
+	if ( transitionAmount > 0.0f )
+	{
+		m_RoomTransition		= transitionAmount;
+		m_NextActiveRoomIndex	= m_ActiveRoomIndex + m_Rooms[m_ActiveRoomIndex]->GetDirectionToNextRoom().x + GAME_ROOMS_X * m_Rooms[m_ActiveRoomIndex]->GetDirectionToNextRoom().y;
 	}
 }
 

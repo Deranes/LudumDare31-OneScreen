@@ -37,6 +37,9 @@
     <ClCompile Include="..\src\game\Player.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\game\Door.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\game\Room.h">
@@ -58,6 +61,9 @@
       <Filter>Source Files\asset</Filter>
     </ClInclude>
     <ClInclude Include="..\src\game\Player.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\Door.h">
       <Filter>Source Files\game</Filter>
     </ClInclude>
   </ItemGroup>
