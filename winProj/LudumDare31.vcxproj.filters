@@ -46,6 +46,9 @@
     <ClCompile Include="..\src\game\Ball.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\utility\Text.cpp">
+      <Filter>Source Files\utiltity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\game\Room.h">
@@ -77,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="..\src\game\Ball.h">
       <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utility\Text.h">
+      <Filter>Source Files\utiltity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

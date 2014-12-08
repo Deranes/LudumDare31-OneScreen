@@ -139,6 +139,7 @@
     <ClCompile Include="..\src\game\Room.cpp" />
     <ClCompile Include="..\src\game\Wall.cpp" />
     <ClCompile Include="..\src\Main.cpp" />
+    <ClCompile Include="..\src\utility\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\asset\RoomLayouts.h" />
@@ -151,6 +152,7 @@
     <ClInclude Include="..\src\game\Room.h" />
     <ClInclude Include="..\src\game\Wall.h" />
     <ClInclude Include="..\src\utility\PlatformDefinitions.h" />
+    <ClInclude Include="..\src\utility\Text.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
