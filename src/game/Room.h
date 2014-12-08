@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Door.h"
 #include "JumpPlate.h"
+#include "Ball.h"
 
 class Room : public Entity
 {
@@ -25,10 +26,12 @@ public:
 private:
 	void					PlayerVsWall			();
 	void					PlayerVsJumpPlate		();
+	void					BallVsWall				();
 
 	std::vector<Wall>		m_Walls;
 	std::vector<Door>		m_Doors;
 	std::vector<JumpPlate>	m_JumpPlates;
+	std::vector<Ball>		m_Balls;
 	Player*					m_Player				= nullptr;
 	float					m_OutTransitionAmount	= 0.0f;
 	glm::ivec2				m_DirectionToNextRoom	= glm::ivec2( 0, 0 );

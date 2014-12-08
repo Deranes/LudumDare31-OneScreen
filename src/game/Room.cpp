@@ -63,6 +63,15 @@ void Room::Initialize( const std::string& layout )
 				m_JumpPlates.push_back( jumpPlate );
 				break;
 			}
+			case '-':
+			{
+				Ball ball;
+				ball.SetPosition( tilePosition );
+				ball.SetSize( tileSize * 0.2f );
+				ball.SetColor( sf::Color::Red );
+				m_Balls.push_back( ball );
+				break;
+			}
 		}
 	}
 }
@@ -71,6 +80,12 @@ void Room::Update( float deltaTime )
 {
 	m_EnteredNextRoom		= false;
 	m_OutTransitionAmount	= 0.0f;
+
+	for ( auto& ball : m_Balls )
+	{
+		ball.Update( deltaTime );
+	}
+	BallVsWall();
 
 	if ( m_Player )
 	{
@@ -105,9 +120,9 @@ void Room::Draw( sf::RenderWindow* window )
 		jumpPlate.Draw( window, m_Position, m_Scale );
 	}
 
-	if ( m_Player )
+	for ( auto& ball : m_Balls )
 	{
-		m_Player->Draw( window, m_Position, m_Scale );
+		ball.Draw( window, m_Position, m_Scale );
 	}
 }
 
@@ -206,6 +221,68 @@ void Room::PlayerVsJumpPlate()
 			{
 				m_Player->GetEditablePosition().y -= depth;
 				m_Player->Jump( 1650.0f );
+			}
+		}
+	}
+}
+
+void Room::BallVsWall()
+{
+	for ( auto& ball : m_Balls )
+	{
+		for ( auto& wall : m_Walls )
+		{
+			const vec2 toPlayer = ball.GetPosition() - wall.GetPosition();
+
+			if ( glm::abs( toPlayer.y ) < glm::abs( toPlayer.x ) )
+			{
+				if ( toPlayer.x < 0.0f )
+				{
+					float playerRight	= ball.GetPosition().x + (0.5f * ball.GetSize().x);
+					float wallLeft		= wall.GetPosition().x - (0.5f * wall.GetSize().x);
+					float depth			= playerRight - wallLeft;
+					if ( depth >= 0.0f && glm::abs( toPlayer.y ) <= 0.5f * (ball.GetSize().y + wall.GetSize().y) )
+					{
+						ball.GetEditablePosition().x -= depth;
+						ball.Velocity *= -1.0f;
+					}
+				}
+				else if ( toPlayer.x > 0.0f )
+				{
+					float playerLeft	= ball.GetPosition().x - (0.5f * ball.GetSize().x);
+					float wallRight		= wall.GetPosition().x + (0.5f * wall.GetSize().x);
+					float depth			= wallRight - playerLeft;
+					if ( depth >= 0.0f && glm::abs( toPlayer.y ) <= 0.5f * (ball.GetSize().y + wall.GetSize().y) )
+					{
+						ball.GetEditablePosition().x += depth;
+						ball.Velocity *= -1.0f;
+					}
+				}
+			}
+			else
+			{
+				if ( toPlayer.y < 0.0f )
+				{
+					float playerBottom	= ball.GetPosition().y + (0.5f * ball.GetSize().y);
+					float wallTop		= wall.GetPosition().y - (0.5f * wall.GetSize().y);
+					float depth			= playerBottom - wallTop;
+					if ( depth >= 0.0f && glm::abs( toPlayer.x ) <= 0.5f * (ball.GetSize().x + wall.GetSize().x) )
+					{
+						ball.GetEditablePosition().y -= depth;
+						ball.Velocity *= -1.0f;
+					}
+				}
+				else if ( toPlayer.y > 0.0f )
+				{
+					float playerTop		= ball.GetPosition().y - (0.5f * ball.GetSize().y);
+					float wallBottom	= wall.GetPosition().y + (0.5f * wall.GetSize().y);
+					float depth			= wallBottom - playerTop;
+					if ( depth >= 0.0f && glm::abs( toPlayer.x ) <= 0.5f * (ball.GetSize().x + wall.GetSize().x) )
+					{
+						ball.GetEditablePosition().y += depth;
+						ball.Velocity *= -1.0f;
+					}
+				}
 			}
 		}
 	}

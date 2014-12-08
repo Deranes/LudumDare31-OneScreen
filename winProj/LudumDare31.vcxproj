@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\asset\RoomLayouts.cpp" />
+    <ClCompile Include="..\src\game\Ball.cpp" />
     <ClCompile Include="..\src\game\Door.cpp" />
     <ClCompile Include="..\src\game\Entity.cpp" />
     <ClCompile Include="..\src\game\Game.cpp" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\asset\RoomLayouts.h" />
+    <ClInclude Include="..\src\game\Ball.h" />
     <ClInclude Include="..\src\game\Door.h" />
     <ClInclude Include="..\src\game\Entity.h" />
     <ClInclude Include="..\src\game\Game.h" />

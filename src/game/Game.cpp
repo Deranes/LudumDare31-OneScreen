@@ -100,6 +100,7 @@ void Game::Draw()
 	{
 		room->Draw( m_Window );
 	}
+	m_Player.Draw( m_Window, m_Rooms[m_ActiveRoomIndex]->GetPosition(), m_Rooms[m_ActiveRoomIndex]->GetScale() );
 }
 
 void Game::RoomPlacement( int roomIndex, int activeRoomIndex, glm::vec2& position )
