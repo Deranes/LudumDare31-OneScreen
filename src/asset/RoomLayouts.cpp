@@ -12,23 +12,23 @@ NNNNNNNNNNNNNNN NNNNN.....NNNNN NNN...........N N.....N.N.....N
 NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNNvNNNNNNN
 
 NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNN^NNNNNNN
-N.............N N.............N N......-......N NN......NNNNNNN
-N.............N N.............N NNNN...N...NNNN NN.|NNN..NNNNNN
-N.............N N.............N N....|.N.|....N NN.NNNN...NNNNN
-N.....9.......> <......8......> <.N...jNj.....> <..NNNN.......N
-N.............N N.............N N.N..NNNNN..NNN NNNNNNN.NNNN..N
-N.............N N.............N N.....N.......N NNNNNNN.NNNNN.N
-N.............N N.............N N.-.j.N.N.j.-.N NNNNNNN.......N
+NNN..|||||..NNN N...-.....-...N N......-......N NN......NNNNNNN
+NNN....-....NNN N.N.N.N.N.N.N.N NNNN...N...NNNN NN.|NNN..NNNNNN
+NNN..NNNNNN...N N..|...|...|..N N....|.N.|....N NN.NNNN...NNNNN
+NNN..|||||.NN.> <.N.-.....-.N.> <.N...jNj.....> <..NNNN.......N
+NNN....-....NNN N|N.N|N.N|N.N.N N.N..NNNNN..NNN NNNNNNN.NNNN..N
+NNNNNNNNNNN...N N.............N N.....N.......N NNNNNNN.NNNNN.N
+NNN....-....N.N N............jN N.-.j.N.N.j.-.N NNNNNNN.......N
 NNNNNNNvNNNNNNN NNNNNNNNNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN
 
 NNNNNNN^NNNNNNN NNNNNNNNNNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN
-N.............N N.............N N.....N.......N N.......NNNNNNN
-N.............N N.............N N.....NjN.....N N.-.NNNNNNNNNNN
-N.............N N.............N N.....NNNNNNN.N NNN..N...-...NN
-N.....10......N N.....13......> <...........N.> <..N..-..N.||.N
-N.............N N.............N N...........NNN N..NNNNNNNNNN.N
-N.............N N.............N N.............N N|NN.|.-...N..N
-N.............N N.............N N.............N N.....NN..-..NN
+NNNNN.....NNNNN N.............N N.....N.......N N.......NNNNNNN
+NNNNN|NN-.NNNNN N.............N N.....NjN.....N N.-.NNNNNNNNNNN
+NNNN........NNN N.............N N.....NNNNNNN.N NNN..N...-...NN
+NNNN|NN-.NN|NNN N.....13......> <...........N.> <..N..-..N.||.N
+NNNN........NNN N.............N N...........NNN N..NNNNNNNNNN.N
+NNNNN|NN-.NNNNN N.............N N.............N N|NN.|.-...N..N
+NNNNN...j.NNNNN N.............N N.............N N.....NN..-..NN
 NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNNNNNNNNN
 
 NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNNNNNNNNNN
@@ -49,12 +49,12 @@ RoomLayouts::RoomLayouts()
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN..........NN.NN...-.......N.N<...N...N...N.>N...N...N...N.NNN............NNNN...........NNNNNNNNNNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.-...........NN.-.NNNNNNNNN.NNNN...N....N..N<.NNN.N.N.NN.NNN.N..|N.N|.N..NN.NNN.N.N.NNN.NN.....N.N.....NNNNNNNNvNNNNNNN" );
 	
-	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............NN.....9.......>N.............NN.............NN.............NNNNNNNNvNNNNNNN" );
-	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............N<......8......>N.............NN.............NN.............NNNNNNNNNNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNNNNNNNNNNNNN..|||||..NNNNNN....-....NNNNNN..NNNNNN...NNNN..|||||.NN.>NNN....-....NNNNNNNNNNNNNN...NNNN....-....N.NNNNNNNNvNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNNNNNNNNNNN...-.....-...NN.N.N.N.N.N.N.NN..|...|...|..N<.N.-.....-.N.>N|N.N|N.N|N.N.NN.............NN............jNNNNNNNNNNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN......-......NNNNN...N...NNNNN....|.N.|....N<.N...jNj.....>N.N..NNNNN..NNNN.....N.......NN.-.j.N.N.j.-.NNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNNN......NNNNNNNNN.|NNN..NNNNNNNN.NNNN...NNNNN<..NNNN.......NNNNNNNN.NNNN..NNNNNNNN.NNNNN.NNNNNNNN.......NNNNNNNNvNNNNNNN" );
 	
-	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.............NN.............NN.............NN.....10......NN.............NN.............NN.............NNNNNNNNvNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNN^NNNNNNNNNNNN.....NNNNNNNNNN|NN-.NNNNNNNNN........NNNNNNN|NN-.NN|NNNNNNN........NNNNNNNN|NN-.NNNNNNNNNN...j.NNNNNNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............NN.....13......>N.............NN.............NN.............NNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.....N.......NN.....NjN.....NN.....NNNNNNN.N<...........N.>N...........NNNN.............NN.............NNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.......NNNNNNNN.-.NNNNNNNNNNNNNN..N...-...NN<..N..-..N.||.NN..NNNNNNNNNN.NN|NN.|.-...N..NN.....NN..-..NNNNNNNNNNNNNNNNN" );

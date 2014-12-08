@@ -70,12 +70,13 @@ void Player::StopFalling()
 void Player::Jump( float power )
 {
 	m_FallSpeed = -power;
-	m_CanJump = false;
 }
 
 void Player::Respawn()
 {
-	m_Position = m_RespawnPos;
+	m_Position	= m_RespawnPos;
+	m_FallSpeed	= 0.0f;
+	m_CanJump	= false;
 }
 
 void Player::SetRespawnPos( const glm::vec2& newRespawnPos )
