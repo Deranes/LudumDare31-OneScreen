@@ -77,6 +77,7 @@ void Player::Respawn()
 	m_Position	= m_RespawnPos;
 	m_FallSpeed	= 0.0f;
 	m_CanJump	= false;
+	m_Deaths++;
 }
 
 void Player::SetRespawnPos( const glm::vec2& newRespawnPos )

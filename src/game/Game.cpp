@@ -45,9 +45,9 @@ void Game::Intialize( sf::RenderWindow* window )
 
 	
 	g_GameTitleText.m_Font.loadFromFile( "../asset/arial.ttf" );
-	g_GameTitleText.m_Text			= "\"I Can See Everything\"";
-	g_GameTitleText.m_Position		= vec2( 0.0f, -350.0f );
-	g_GameTitleText.m_FontSize		= 125;
+	g_GameTitleText.m_Text		= "\"I Can See Everything\"";
+	g_GameTitleText.m_Position	= vec2( 0.0f, -350.0f );
+	g_GameTitleText.m_FontSize	= 125;
 
 	g_SubTitleText.m_Font		= g_GameTitleText.m_Font;
 	g_SubTitleText.m_Text		= "By: Deranes";
@@ -57,12 +57,12 @@ void Game::Intialize( sf::RenderWindow* window )
 	g_GameOverText.m_Font		= g_GameTitleText.m_Font;
 	g_GameOverText.m_Text		= "VICTORY!";
 	g_GameOverText.m_Position	= vec2( 0.0f, -200.0f );
-	g_GameOverText.m_FontSize	= 140;
+	g_GameOverText.m_FontSize	= 250;
 
 	g_DeathText.m_Font			= g_GameTitleText.m_Font;
-	g_DeathText.m_Text			= "0 deaths";
-	g_DeathText.m_Position		= vec2( 0.0f, 0.0f );
-	g_DeathText.m_FontSize		= 100;
+	g_DeathText.m_Text			= std::to_string( m_Player.m_Deaths );
+	g_DeathText.m_Position		= vec2( 0.0f, 50.0f );
+	g_DeathText.m_FontSize		= 170;
 
 	m_Rooms[m_ActiveRoomIndex]->SetScale( ROOM_SCALE_BIG );
 
@@ -128,6 +128,8 @@ void Game::Draw()
 		room->Draw( m_Window );
 	}
 	
+	g_DeathText.m_Text = std::to_string( m_Player.m_Deaths ) + " deaths";
+
 	g_GameTitleText.Draw( m_Window, m_Rooms[0]->GetPosition(), m_Rooms[0]->GetScale() );
 	g_SubTitleText.Draw( m_Window, m_Rooms[0]->GetPosition(), m_Rooms[0]->GetScale() );
 	g_GameOverText.Draw( m_Window, m_Rooms[15]->GetPosition(), m_Rooms[15]->GetScale() );
