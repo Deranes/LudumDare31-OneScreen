@@ -57,8 +57,8 @@ void Room::Initialize( const std::string& layout )
 			case 'j':
 			{
 				JumpPlate jumpPlate;
-				jumpPlate.SetPosition( tilePosition );
-				jumpPlate.SetSize( tileSize );
+				jumpPlate.SetPosition( vec2( tilePosition.x, tilePosition.y + 45.0f ) );
+				jumpPlate.SetSize( vec2( tileSize.x, 10.0f ) );
 				jumpPlate.SetColor( sf::Color::Blue );
 				m_JumpPlates.push_back( jumpPlate );
 				break;
@@ -76,6 +76,7 @@ void Room::Update( float deltaTime )
 	{
 
 		PlayerVsWall();
+		PlayerVsJumpPlate();
 
 		for ( auto& door : m_Doors )
 		{
@@ -186,6 +187,25 @@ void Room::PlayerVsWall()
 				{
 					m_Player->GetEditablePosition().y += depth;
 				}
+			}
+		}
+	}
+}
+
+void Room::PlayerVsJumpPlate()
+{
+	for ( auto& jumpPlate : m_JumpPlates )
+	{
+		const vec2 toPlayer = m_Player->GetPosition() - jumpPlate.GetPosition();
+		if ( toPlayer.y < 0.0f )
+		{
+			float playerBottom	= m_Player->GetPosition().y + (0.5f * m_Player->GetSize().y);
+			float plateTop		= jumpPlate.GetPosition().y - (0.5f * jumpPlate.GetSize().y);
+			float depth			= playerBottom - plateTop;
+			if ( depth >= 0.0f && glm::abs( toPlayer.x ) <= 0.5f * (m_Player->GetSize().x + jumpPlate.GetSize().x) )
+			{
+				m_Player->GetEditablePosition().y -= depth;
+				m_Player->Jump( 1650.0f );
 			}
 		}
 	}

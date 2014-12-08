@@ -66,3 +66,9 @@ void Player::StopFalling()
 	m_FallSpeed = 0.0f;
 	m_CanJump	= true;
 }
+
+void Player::Jump( float power )
+{
+	m_FallSpeed = -power;
+	m_CanJump = false;
+}

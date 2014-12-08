@@ -14,6 +14,7 @@ public:
 	void				Initialize		( const glm::vec2& position );
 	void				Update			( float deltaTime ) override;
 	void				StopFalling		();
+	void				Jump			( float power );
 
 private:
 	float				m_FallSpeed		= 0.0f;

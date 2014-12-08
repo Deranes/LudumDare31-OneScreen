@@ -24,6 +24,7 @@ public:
 
 private:
 	void					PlayerVsWall			();
+	void					PlayerVsJumpPlate		();
 
 	std::vector<Wall>		m_Walls;
 	std::vector<Door>		m_Doors;

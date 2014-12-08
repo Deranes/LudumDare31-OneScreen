@@ -15,10 +15,10 @@ NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNN^NNNNNNN
 N.............N N.............N N.............N NN......NNNNNNN
 N.............N N.............N NNNN...N...NNNN NN..NNN..NNNNNN
 N.............N N.............N N......N......N NN.NNNN...NNNNN
-N.....9.......> <......8......> <.N..j.N.j....> <..NNNN.......N
+N.....9.......> <......8......> <.N...jNj.....> <..NNNN.......N
 N.............N N.............N N.N..NNNNN..NNN NNNNNNN.NNNN..N
 N.............N N.............N N.....N.......N NNNNNNN.NNNNN.N
-N.............N N.............N N..j..N.N..j..N NNNNNNN.......N
+N.............N N.............N N...j.N.N.j...N NNNNNNN.......N
 NNNNNNNvNNNNNNN NNNNNNNNNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN
 
 NNNNNNN^NNNNNNN NNNNNNNNNNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN
@@ -51,7 +51,7 @@ RoomLayouts::RoomLayouts()
 	
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............NN.....9.......>N.............NN.............NN.............NNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............N<......8......>N.............NN.............NN.............NNNNNNNNNNNNNNNN" );
-	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NNNNN...N...NNNNN......N......N<.N..j.N.j....>N.N..NNNNN..NNNN.....N.......NN..j..N.N..j..NNNNNNNNvNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NNNNN...N...NNNNN......N......N<.N...jNj.....>N.N..NNNNN..NNNN.....N.......NN...j.N.N.j...NNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNNN......NNNNNNNNN..NNN..NNNNNNNN.NNNN...NNNNN<..NNNN.......NNNNNNNN.NNNN..NNNNNNNN.NNNNN.NNNNNNNN.......NNNNNNNNvNNNNNNN" );
 	
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.............NN.............NN.............NN.....10......NN.............NN.............NN.............NNNNNNNNvNNNNNNN" );
@@ -59,10 +59,10 @@ RoomLayouts::RoomLayouts()
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.....N.......NN.....NjN.....NN.....NNNNNNN.N<...........N.>N...........NNNN.............NN.............NNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.............NN...NNNNNNNNNNNNNN...N.....N.N<..N.....N....NN..NNNNNNNNNN.NN.NN.......N..NN.....NN.....NNNNNNNNNNNNNNNNN" );
 	
-	//m_Layouts.push_back( "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN" );
-	//m_Layouts.push_back( "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN" );
-	//m_Layouts.push_back( "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN" );
-	//m_Layouts.push_back( "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.............NN.............NN.............NN.....11......>N.............NN.............NN.............NNNNNNNNNNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.............NN.............NN.............N<.....12......NN.............NN.............NN.............NNNNNNNNNNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.............NN.............NN.............NN.....15......>N.............NN.............NN.............NNNNNNNNNNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............N<.....16......NN.............NN.............NN.............NNNNNNNNNNNNNNNN" );
 
 	for ( int i = static_cast<int>(m_Layouts.size()); i < 16; ++i )
 	{
