@@ -40,11 +40,21 @@ void Player::Update( float deltaTime )
 		m_JumpTimeLeft = 0.0f;
 	}
 
-	if ( m_RotateRight )
-		m_Rotation = m_CanJump ? 0.0f : m_Rotation + PLAYER_ROT_SPEED * deltaTime;
+	if ( !m_CanJump )
+	{
+		if ( glm::abs( m_Rotation ) < 360.0f )
+		{
+			if ( m_RotateRight )
+				m_Rotation += PLAYER_ROT_SPEED * deltaTime;
+			else
+				m_Rotation -= PLAYER_ROT_SPEED * deltaTime;
+		}
+	}
 	else
-		m_Rotation = m_CanJump ? 0.0f : m_Rotation - PLAYER_ROT_SPEED * deltaTime;
-
+	{
+		m_Rotation = 0.0f;
+	}
+	 
 	m_FallSpeed += deltaTime * PLAYER_GRAVITY;
 	m_Position.y += deltaTime * m_FallSpeed;
 
