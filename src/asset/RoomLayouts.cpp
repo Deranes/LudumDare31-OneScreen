@@ -32,13 +32,13 @@ NNNNN...j.NNNNN N.............N N.............N N.....NN..-..NN
 NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNNNNNNNNN
 
 NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNNNNNNNNNN
-N.............N N.............N N.............N N.............N
-N.............N N.............N N.............N N.............N
-N.............N N.............N N.............N N.............N
-N.....11......> <.....12......N N.....15......> <.....16......N
-N.............N N.............N N.............N N.............N
-N.............N N.............N N.............N N.............N
-N.............N N.............N N.............N N.............N
+N...|...|...N.N N.............N N.............N N.............N
+NN.N-N-N-N-NN.N N.............N N.............N N.............N
+N.....|...|.N.N N.............N N.............N N.............N
+NN-N-N-N-N.NN.> <.....12......N N.....15......> <.....16......N
+N...|...|...N.N N.............N N.............N N.............N
+NN.N-N-N-N-NN.N N.............N N.............N N.............N
+N.|...|...|..jN N.............N N.............N N.............N
 NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN
 */
 
@@ -59,7 +59,7 @@ RoomLayouts::RoomLayouts()
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.....N.......NN.....NjN.....NN.....NNNNNNN.N<...........N.>N...........NNNN.............NN.............NNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.......NNNNNNNN.-.NNNNNNNNNNNNNN..N...-...NN<..N..-..N.||.NN..NNNNNNNNNN.NN|NN.|.-...N..NN.....NN..-..NNNNNNNNNNNNNNNNN" );
 	
-	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.............NN.............NN.............NN.....11......>N.............NN.............NN.............NNNNNNNNNNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNN^NNNNNNNN...|...|...N.NNN.N-N-N-N-NN.NN.....|...|.N.NNN-N-N-N-N.NN.>N...|...|...N.NNN.N-N-N-N-NN.NN.|...|...|..jNNNNNNNNNNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.............NN.............NN.............N<.....12......NN.............NN.............NN.............NNNNNNNNNNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.............NN.............NN.............NN.....15......>N.............NN.............NN.............NNNNNNNNNNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............N<.....16......NN.............NN.............NN.............NNNNNNNNNNNNNNNN" );
