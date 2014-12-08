@@ -15,9 +15,13 @@ public:
 	void				Update			( float deltaTime ) override;
 	void				StopFalling		();
 	void				Jump			( float power );
+	void				Respawn			();
+	
+	void				SetRespawnPos	( const glm::vec2& newRespawnPos );
 
 private:
 	float				m_FallSpeed		= 0.0f;
 	bool				m_CanJump		= false;
 	float				m_JumpTimeLeft	= 0.0f;
+	glm::vec2			m_RespawnPos	= glm::vec2( 0.0f );
 };

@@ -69,6 +69,17 @@ void Room::Initialize( const std::string& layout )
 				ball.SetPosition( tilePosition );
 				ball.SetSize( tileSize * 0.2f );
 				ball.SetColor( sf::Color::Red );
+				ball.Velocity = vec2( 370.0f, 0.0f );
+				m_Balls.push_back( ball );
+				break;
+			}
+			case '|':
+			{
+				Ball ball;
+				ball.SetPosition( tilePosition );
+				ball.SetSize( tileSize * 0.2f );
+				ball.SetColor( sf::Color::Red );
+				ball.Velocity = vec2( 0.0f, 370.0f );
 				m_Balls.push_back( ball );
 				break;
 			}
@@ -89,9 +100,9 @@ void Room::Update( float deltaTime )
 
 	if ( m_Player )
 	{
-
 		PlayerVsWall();
 		PlayerVsJumpPlate();
+		PlayerVsBall();
 
 		for ( auto& door : m_Doors )
 		{
@@ -128,6 +139,7 @@ void Room::Draw( sf::RenderWindow* window )
 
 void Room::PlayerEntered( Player* player )
 {
+	player->SetRespawnPos( player->GetPosition() );
 	m_Player = player;
 }
 
@@ -221,6 +233,61 @@ void Room::PlayerVsJumpPlate()
 			{
 				m_Player->GetEditablePosition().y -= depth;
 				m_Player->Jump( 1650.0f );
+			}
+		}
+	}
+}
+
+void Room::PlayerVsBall()
+{
+	for ( auto& ball : m_Balls )
+	{
+		const vec2 toPlayer = m_Player->GetPosition() - ball.GetPosition();
+
+		if ( glm::abs( toPlayer.y ) < glm::abs( toPlayer.x ) )
+		{
+			if ( toPlayer.x < 0.0f )
+			{
+				float playerRight	= m_Player->GetPosition().x + (0.5f * m_Player->GetSize().x);
+				float wallLeft		= ball.GetPosition().x - (0.5f * ball.GetSize().x);
+				float depth			= playerRight - wallLeft;
+				if ( depth >= 0.0f && glm::abs( toPlayer.y ) <= 0.5f * (m_Player->GetSize().y + ball.GetSize().y) )
+				{
+					m_Player->Respawn();
+				}
+			}
+			else if ( toPlayer.x > 0.0f )
+			{
+				float playerLeft	= m_Player->GetPosition().x - (0.5f * m_Player->GetSize().x);
+				float wallRight		= ball.GetPosition().x + (0.5f * ball.GetSize().x);
+				float depth			= wallRight - playerLeft;
+				if ( depth >= 0.0f && glm::abs( toPlayer.y ) <= 0.5f * (m_Player->GetSize().y + ball.GetSize().y) )
+				{
+					m_Player->Respawn();
+				}
+			}
+		}
+		else
+		{
+			if ( toPlayer.y < 0.0f )
+			{
+				float playerBottom	= m_Player->GetPosition().y + (0.5f * m_Player->GetSize().y);
+				float wallTop		= ball.GetPosition().y - (0.5f * ball.GetSize().y);
+				float depth			= playerBottom - wallTop;
+				if ( depth >= 0.0f && glm::abs( toPlayer.x ) <= 0.5f * (m_Player->GetSize().x + ball.GetSize().x) )
+				{
+					m_Player->Respawn();
+				}
+			}
+			else if ( toPlayer.y > 0.0f )
+			{
+				float playerTop		= m_Player->GetPosition().y - (0.5f * m_Player->GetSize().y);
+				float wallBottom	= ball.GetPosition().y + (0.5f * ball.GetSize().y);
+				float depth			= wallBottom - playerTop;
+				if ( depth >= 0.0f && glm::abs( toPlayer.x ) <= 0.5f * (m_Player->GetSize().x + ball.GetSize().x) )
+				{
+					m_Player->Respawn();
+				}
 			}
 		}
 	}

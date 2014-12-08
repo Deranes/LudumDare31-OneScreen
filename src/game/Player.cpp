@@ -72,3 +72,13 @@ void Player::Jump( float power )
 	m_FallSpeed = -power;
 	m_CanJump = false;
 }
+
+void Player::Respawn()
+{
+	m_Position = m_RespawnPos;
+}
+
+void Player::SetRespawnPos( const glm::vec2& newRespawnPos )
+{
+	m_RespawnPos = newRespawnPos;
+}

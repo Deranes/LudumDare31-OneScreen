@@ -2,11 +2,11 @@
 
 /*
 N.............N N.............N NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN
-N.............N N.............N N.............N N.............N
-N.............N N.............N N..........NN.N N...NNNNNNNNN.N
+N.............N N.............N N.............N N.-...........N
+N.............N N.............N N..........NN.N N.-.NNNNNNNNN.N
 N.............N N.............N N...-.......N.N NNN...N....N..N
 N.............> <.............> <...N...N...N.> <.NNN.N.N.NN.NN
-NNNNNNNNNNNNNNN NNN.........NNN N...N...N...N.N N.N...N.N..N..N
+NNNNNNNNNNNNNNN NNN.........NNN N...N...N...N.N N.N..|N.N|.N..N
 NNNNNNNNNNNNNNN NNNN.......NNNN NN............N N.NNN.N.N.NNN.N
 NNNNNNNNNNNNNNN NNNNN.....NNNNN NNN...........N N.....N.N.....N
 NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNNvNNNNNNN
@@ -47,7 +47,7 @@ RoomLayouts::RoomLayouts()
 	m_Layouts.push_back( "N.............NN.............NN.............NN.............NN.............>NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN" );
 	m_Layouts.push_back( "N.............NN.............NN.............NN.............N<.............>NNN.........NNNNNNN.......NNNNNNNNN.....NNNNNNNNNNNNNNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN..........NN.NN...-.......N.N<...N...N...N.>N...N...N...N.NNN............NNNN...........NNNNNNNNNNNNNNNN" );
-	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN...NNNNNNNNN.NNNN...N....N..N<.NNN.N.N.NN.NNN.N...N.N..N..NN.NNN.N.N.NNN.NN.....N.N.....NNNNNNNNvNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.-...........NN.-.NNNNNNNNN.NNNN...N....N..N<.NNN.N.N.NN.NNN.N..|N.N|.N..NN.NNN.N.N.NNN.NN.....N.N.....NNNNNNNNvNNNNNNN" );
 	
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............NN.....9.......>N.............NN.............NN.............NNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............N<......8......>N.............NN.............NN.............NNNNNNNNNNNNNNNN" );

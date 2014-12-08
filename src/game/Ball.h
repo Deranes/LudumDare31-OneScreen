@@ -7,5 +7,5 @@ class Ball : public Entity
 public:
 	void			Update		( float deltaTime ) override;
 
-	glm::vec2		Velocity	= glm::vec2( 500.0f, 0.0f );
+	glm::vec2		Velocity	= glm::vec2( 0.0f, 0.0f );
 };
