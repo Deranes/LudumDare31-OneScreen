@@ -26,7 +26,7 @@ private:
 	sf::RenderWindow*	m_Window;
 	std::vector<Room*>	m_Rooms;
 	Player				m_Player;
-	int					m_ActiveRoomIndex		= 10;
+	int					m_ActiveRoomIndex		= 0;
 	int					m_NextActiveRoomIndex	= m_ActiveRoomIndex;
 	float				m_RoomTransition		= 0.000001f;
 };

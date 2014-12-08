@@ -39,7 +39,7 @@ void Game::Intialize( sf::RenderWindow* window )
 
 	m_Rooms[m_ActiveRoomIndex]->SetScale( ROOM_SCALE_BIG );
 
-	m_Player.Initialize( glm::vec2( -700.0f, 0.0f ) );
+	m_Player.Initialize( glm::vec2( -600.0f, 0.0f ) );
 	m_Rooms[m_ActiveRoomIndex]->PlayerEntered( &m_Player );
 }
 
