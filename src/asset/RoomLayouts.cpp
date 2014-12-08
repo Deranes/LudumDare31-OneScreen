@@ -23,22 +23,22 @@ NNNNNNNvNNNNNNN NNNNNNNNNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN
 
 NNNNNNN^NNNNNNN NNNNNNNNNNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN
 NNNNN.....NNNNN N-....|.......N N.....N.......N N.......NNNNNNN
-NNNNN|NN-.NNNNN N....|.N.|N...N N.....NjN.....N N.-.NNNNNNNNNNN
-NNNN........NNN N..N|..NNNNN|NN N.....NNNNNNN.N NNN..N...-...NN
-NNNN|NN-.NN|NNN N-.NjjjNNN....> <...........N.> <..N..-..N.||.N
-NNNN........NNN N..NNNNNNNNNN.N N...........NNN N..NNNNNNNNNN.N
-NNNNN|NN-.NNNNN N-.N|N-.-|-|-.N N.............N N|NN.|.-...N..N
-NNNNN...j.NNNNN Nj........|.|jN N.............N N.....NN..-..NN
+NNNNN|NN-.NNNNN N....|.N.|N...N N|....NjN.....N N.-.NNNNNNNNNNN
+NNNN........NNN N..N|..NNNNN|NN N-|...NNNNNNN.N NNN..N...-...NN
+NNNN|NN-.NN|NNN N-.NjjjNNN....> <..|....|...N.> <..N..-..N.||.N
+NNNN........NNN N..NNNNNNNNNN.N N-..|....|..NNN N..NNNNNNNNNN.N
+NNNNN|NN-.NNNNN N-.N|N-.-|-|-.N N....|....|...N N|NN.|.-...N..N
+NNNNN...j.NNNNN Nj........|.|jN N-.........|.-N N.....NN..-..NN
 NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNvNNNNNNN NNNNNNNNNNNNNNN
 
 NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNN^NNNNNNN NNNNNNNNNNNNNNN
-N...|...|...N.N NNNNN..-..|||.N N.............N N.............N
-NN.N-N-N-N-NN.N NNNNN....-....N N.............N N.............N
-N.....|...|.N.N NNNNNNNjN..-..N N.............N N.............N
-NN-N-N-N-N.NN.> <.NNNNNNN.....N N.....15......> <.....16......N
-N...|...|...N.N N.NNN.NNN.NN..N N.............N N.............N
-NN.N-N-N-N-NN.N N.NNN.NNN.NNN.N N.............N N.............N
-N.|...|...|..jN N-...........-N N.............N N.............N
+N...|...|...N.N NNNNN..-..|||.N N.......N...|.N N.............N
+NN.N-N-N-N-NN.N NNNNN....-....N N.NNNNNNN..|.|N N.............N
+N.....|...|.N.N NNNNNNNjN..-..N N.|.......|...N N.............N
+NN-N-N-N-N.NN.> <.NNNNNNN.....N N..|.....|....> <.....16......N
+N...|...|...N.N N.NNN.NNN.NN..N NN..|...|....-N N.............N
+NN.N-N-N-N-NN.N N.NNN.NNN.NNN.N N....|.|......N N.............N
+N.|...|...|..jN N-...........-N N-....|......NN N.............N
 NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN NNNNNNNNNNNNNNN
 */
 
@@ -56,18 +56,13 @@ RoomLayouts::RoomLayouts()
 	
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNNNNNN.....NNNNNNNNNN|NN-.NNNNNNNNN........NNNNNNN|NN-.NN|NNNNNNN........NNNNNNNN|NN-.NNNNNNNNNN...j.NNNNNNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN-....|.......NN....|.N.|N...NN..N|..NNNNN|NNN-.NjjjNNN....>N..NNNNNNNNNN.NN-.N|N-.-|-|-.NNj........|.|jNNNNNNNNvNNNNNNN" );
-	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.....N.......NN.....NjN.....NN.....NNNNNNN.N<...........N.>N...........NNNN.............NN.............NNNNNNNNvNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.....N.......NN|....NjN.....NN-|...NNNNNNN.N<..|....|...N.>N-..|....|..NNNN....|....|...NN-.........|.-NNNNNNNNvNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.......NNNNNNNN.-.NNNNNNNNNNNNNN..N...-...NN<..N..-..N.||.NN..NNNNNNNNNN.NN|NN.|.-...N..NN.....NN..-..NNNNNNNNNNNNNNNNN" );
 	
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNN...|...|...N.NNN.N-N-N-N-NN.NN.....|...|.N.NNN-N-N-N-N.NN.>N...|...|...N.NNN.N-N-N-N-NN.NN.|...|...|..jNNNNNNNNNNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNN^NNNNNNNNNNNN..-..|||.NNNNNN....-....NNNNNNNNjN..-..N<.NNNNNNN.....NN.NNN.NNN.NN..NN.NNN.NNN.NNN.NN-...........-NNNNNNNNNNNNNNNN" );
-	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.............NN.............NN.............NN.....15......>N.............NN.............NN.............NNNNNNNNNNNNNNNN" );
+	m_Layouts.push_back( "NNNNNNN^NNNNNNNN.......N...|.NN.NNNNNNN..|.|NN.|.......|...NN..|.....|....>NN..|...|....-NN....|.|......NN-....|......NNNNNNNNNNNNNNNNN" );
 	m_Layouts.push_back( "NNNNNNNNNNNNNNNN.............NN.............NN.............N<.....16......NN.............NN.............NN.............NNNNNNNNNNNNNNNN" );
-
-	for ( int i = static_cast<int>(m_Layouts.size()); i < 16; ++i )
-	{
-		m_Layouts.push_back("NNNNNNN^NNNNNNNN.............NN.............NN.............N<.............>N.............NN.............NN.............NNNNNNNNvNNNNNNN");
-	}
 }
 
 const std::vector<std::string>& RoomLayouts::GetLayouts() const
