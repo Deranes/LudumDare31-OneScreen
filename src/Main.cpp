@@ -9,7 +9,7 @@ int main()
 	//_CrtSetBreakAlloc( 2704 ); //Insert allocation numbers here to invoke a break at that point
 	#endif
 
-	sf::RenderWindow window( sf::VideoMode(1500, 900), "Ola Enberg - Ludum Dare 31 - Entire Game on One Screen" );
+	sf::RenderWindow window( sf::VideoMode(1500, 900), "Deranes - Ludum Dare 31 - Entire Game on One Screen" );
 
 	Game game;
 	game.Intialize( &window );
@@ -29,7 +29,7 @@ int main()
 
 		sf::Time deltaTime = deltaClock.restart();
 
-		game.Update( deltaTime.asSeconds() );
+		game.Update( glm::min( 0.0166667f, deltaTime.asSeconds() ) );
 
 		window.clear( sf::Color::Black );
 		game.Draw();

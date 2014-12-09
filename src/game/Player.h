@@ -19,7 +19,7 @@ public:
 	
 	void				SetRespawnPos	( const glm::vec2& newRespawnPos );
 	
-	bool				m_Deaths		= 0;
+	int					m_Deaths		= 0;
 
 private:
 	float				m_FallSpeed		= 0.0f;

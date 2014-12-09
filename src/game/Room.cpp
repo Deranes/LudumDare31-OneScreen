@@ -69,7 +69,7 @@ void Room::Initialize( const std::string& layout )
 				ball.SetPosition( tilePosition );
 				ball.SetSize( tileSize * 0.2f );
 				ball.SetColor( sf::Color::Red );
-				ball.Velocity = vec2( 370.0f, 0.0f );
+				ball.Velocity = vec2( 320.0f, 0.0f );
 				m_Balls.push_back( ball );
 				break;
 			}
@@ -79,7 +79,7 @@ void Room::Initialize( const std::string& layout )
 				ball.SetPosition( tilePosition );
 				ball.SetSize( tileSize * 0.2f );
 				ball.SetColor( sf::Color::Red );
-				ball.Velocity = vec2( 0.0f, 370.0f );
+				ball.Velocity = vec2( 0.0f, 320.0f );
 				m_Balls.push_back( ball );
 				break;
 			}
