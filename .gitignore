@@ -154,3 +154,6 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+
+
+!/winProj/x64/Release/sfml-system-2.dll
