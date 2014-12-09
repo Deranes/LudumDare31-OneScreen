@@ -117,7 +117,7 @@ void Room::Update( float deltaTime )
 	}
 }
 
-void Room::Draw( sf::RenderWindow* window )
+void Room::Draw( sf::RenderTexture* window )
 {
 	Entity::Draw( window );
 

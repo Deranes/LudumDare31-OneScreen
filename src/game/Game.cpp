@@ -6,6 +6,7 @@
 
 using glm::vec2;
 
+sf::RenderTexture g_RenderTexture;
 Text g_GameTitleText;
 Text g_SubTitleText;
 Text g_GameOverText;
@@ -22,9 +23,10 @@ Game::~Game()
 void Game::Intialize( sf::RenderWindow* window )
 {
 	m_Window = window;
+	g_RenderTexture.create( 1500, 900 );
 
-	vec2 distBetweenRooms( window->getSize().x / static_cast<float>(GAME_ROOMS_X),
-							window->getSize().y / static_cast<float>(GAME_ROOMS_Y) );
+	vec2 distBetweenRooms( 1500 / static_cast<float>(GAME_ROOMS_X),
+							900 / static_cast<float>(GAME_ROOMS_Y) );
 
 	RoomLayouts roomLayouts;
 
@@ -36,7 +38,7 @@ void Game::Intialize( sf::RenderWindow* window )
 				newRoom->Initialize( roomLayouts.GetLayouts()[ y * GAME_ROOMS_X + x] );
 
 				newRoom->SetPosition		( vec2( 0.5f + x, 0.5f + y ) * distBetweenRooms );
-				newRoom->SetSize			( vec2( window->getSize().x, window->getSize().y ) );
+				newRoom->SetSize			( vec2( 1500, 900 ) );
 				newRoom->SetScale			( ROOM_SCALE_SMALL );
 
 				m_Rooms.push_back( newRoom );
@@ -123,24 +125,34 @@ void Game::Update( float deltaTime )
 
 void Game::Draw()
 {
+	g_RenderTexture.clear( sf::Color::Black );
+
 	for ( auto& room : m_Rooms )
 	{
-		room->Draw( m_Window );
+		room->Draw( &g_RenderTexture );
 	}
 	
 	g_DeathText.m_Text = std::to_string( m_Player.m_Deaths ) + " deaths";
 
-	g_GameTitleText.Draw( m_Window, m_Rooms[0]->GetPosition(), m_Rooms[0]->GetScale() );
-	g_SubTitleText.Draw( m_Window, m_Rooms[0]->GetPosition(), m_Rooms[0]->GetScale() );
-	g_GameOverText.Draw( m_Window, m_Rooms[15]->GetPosition(), m_Rooms[15]->GetScale() );
-	g_DeathText.Draw( m_Window, m_Rooms[15]->GetPosition(), m_Rooms[15]->GetScale() );
+	g_GameTitleText.Draw( &g_RenderTexture, m_Rooms[0]->GetPosition(), m_Rooms[0]->GetScale() );
+	g_SubTitleText.Draw( &g_RenderTexture, m_Rooms[0]->GetPosition(), m_Rooms[0]->GetScale() );
+	g_GameOverText.Draw( &g_RenderTexture, m_Rooms[15]->GetPosition(), m_Rooms[15]->GetScale() );
+	g_DeathText.Draw( &g_RenderTexture, m_Rooms[15]->GetPosition(), m_Rooms[15]->GetScale() );
 
-	m_Player.Draw( m_Window, m_Rooms[m_ActiveRoomIndex]->GetPosition(), m_Rooms[m_ActiveRoomIndex]->GetScale() );
+	m_Player.Draw( &g_RenderTexture, m_Rooms[m_ActiveRoomIndex]->GetPosition(), m_Rooms[m_ActiveRoomIndex]->GetScale() );
+
+	g_RenderTexture.display();
+
+	sf::RectangleShape rect;
+	rect.setSize( sf::Vector2f( 1500, 900.0f ) );
+	rect.setTexture( &g_RenderTexture.getTexture() );
+	rect.setScale( 0.8f, 0.8f );
+	m_Window->draw( rect );
 }
 
 void Game::RoomPlacement( int roomIndex, int activeRoomIndex, glm::vec2& position )
 {
-	const vec2 windowSize		= vec2( m_Window->getSize().x, m_Window->getSize().y );
+	const vec2 windowSize		= vec2( 1500, 900 );
 	const vec2 smallRoomSize	= ROOM_SCALE_SMALL * windowSize;
 	const vec2 bigRoomSize		= ROOM_SCALE_BIG * windowSize;
 	const vec2 bigSmallDiffSize	= bigRoomSize - smallRoomSize;

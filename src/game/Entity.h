@@ -7,8 +7,8 @@ class Entity
 {
 public:
 	virtual void				Update				( float deltaTime );
-	virtual void				Draw				( sf::RenderWindow* window );
-	virtual void				Draw				( sf::RenderWindow* window, const glm::vec2& position, float scale );
+	virtual void				Draw				( sf::RenderTexture* window );
+	virtual void				Draw				( sf::RenderTexture* window, const glm::vec2& position, float scale );
 
 	virtual const glm::vec2&	GetPosition			() const;
 	virtual glm::vec2&			GetEditablePosition	();

@@ -1,6 +1,6 @@
 #include "Text.h"
 
-void Text::Draw( sf::RenderWindow* window, const glm::vec2& position, float scale )
+void Text::Draw( sf::RenderTexture* window, const glm::vec2& position, float scale )
 {
 	static sf::Text text;
 	text.setColor( sf::Color::Black );

@@ -7,12 +7,12 @@ void Entity::Update( float deltaTime )
 
 }
 
-void Entity::Draw( sf::RenderWindow* window )
+void Entity::Draw( sf::RenderTexture* window )
 {
 	Entity::Draw( window, vec2( 0.0f ), 1.0f );
 }
 
-void Entity::Draw( sf::RenderWindow* window, const glm::vec2& position, float scale )
+void Entity::Draw( sf::RenderTexture* window, const glm::vec2& position, float scale )
 {
 	vec2	drawPosition	= position + scale * m_Position;
 	float	drawScale		= m_Scale * scale;

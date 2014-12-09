@@ -7,7 +7,7 @@
 class Text
 {
 public:
-	void			Draw( sf::RenderWindow* window, const glm::vec2& position, float scale );
+	void			Draw( sf::RenderTexture* window, const glm::vec2& position, float scale );
 
 	sf::Font		m_Font;
 	std::string		m_Text;

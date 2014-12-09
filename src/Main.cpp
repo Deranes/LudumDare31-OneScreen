@@ -9,7 +9,7 @@ int main()
 	//_CrtSetBreakAlloc( 2704 ); //Insert allocation numbers here to invoke a break at that point
 	#endif
 
-	sf::RenderWindow window( sf::VideoMode(1500, 900), "Deranes - Ludum Dare 31 - Entire Game on One Screen" );
+	sf::RenderWindow window( sf::VideoMode(1200, 720), "Deranes - Ludum Dare 31 - Entire Game on One Screen" );
 
 	Game game;
 	game.Intialize( &window );
