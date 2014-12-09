@@ -125,7 +125,11 @@ void Game::Update( float deltaTime )
 
 void Game::Draw()
 {
-	g_RenderTexture.clear( sf::Color::Black );
+	// Workaround for g_RenderTexture.clear() since that doesn't work well on intel and AMD cards.
+	sf::RectangleShape back;
+	back.setSize( sf::Vector2f( 1500, 900.0f ) );
+	back.setFillColor( sf::Color::Black );
+	g_RenderTexture.draw( back );
 
 	for ( auto& room : m_Rooms )
 	{
